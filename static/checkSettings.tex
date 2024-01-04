@@ -1,0 +1,340 @@
+%!TEX root = ../main.tex
+
+% Check if \documentType is empty
+\ifdefempty{\documentType} % if \documentType is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'documentType' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    {}
+
+
+% Check if \documentTitle is empty
+\ifdefempty{\documentTitle} % if \documentTitle is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'documentTitle' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    {}
+
+
+% Check if \documentAuthor is empty
+\ifdefempty{\documentAuthor} % if \documentAuthor is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'documentAuthor' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    {}
+
+
+% Check if \firstExaminer is empty
+\ifdefempty{\firstExaminer} % if \firstExaminer is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'firstExaminer' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    {}
+
+
+% Check if \submissionDate is empty
+\ifdefempty{\submissionDate} % if \submissionDate is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'submissionDate' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    {}
+
+
+% Check if \location is empty
+\ifdefempty{\location} % if \location is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'location' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    {}
+
+
+% Check if \documentLanguage is empty
+\ifdefempty{\documentLanguage} % if \documentLanguage is empty
+    % then:
+    {
+        \PackageError{Parameter}{Settings Error}{Parameter 'documentLanguage' in 'content/settings.tex' must not be empty.}
+    }
+    % else:
+    { % Check if all the specific language files exist
+
+        % Check if specific static/languages/... file exists
+        \IfFileExists{static/languages/\documentLanguage.tex} % if specific language file exists
+            % then:
+            {}
+            % else:
+            {
+                \PackageError{Parameter}{Language Error}{Parameter '\documentLanguage' for 'documentLanguage' in 'content/settings.tex' must be defined as 'static/languages/\documentLanguage.tex'.}
+            }
+
+        % Check if specific static/specialPages/Abstract_... file exists for language
+        \IfFileExists{static/specialPages/Abstract_\documentLanguage.tex} % if specific language file exists
+            % then:
+            {}
+            % else:
+            {
+                \PackageError{Parameter}{Language Error}{Parameter '\documentLanguage' for 'documentLanguage' in 'content/settings.tex' must be defined in 'static/specialPages/Abstract_\documentLanguage.tex'.}
+            }
+
+        % Check if specific content/specialPages/Abstract_... file exists for language
+        \IfFileExists{content/specialPages/Abstract_\documentLanguage.tex} % if specific language file exists
+            % then:
+            {}
+            % else:
+            {
+                \PackageError{Parameter}{Language Error}{Parameter '\documentLanguage' for 'documentLanguage' in 'content/settings.tex' must be defined in 'content/specialPages/Abstract_\documentLanguage.tex'.}
+            }
+    }
+
+
+% Check if \specialGrammar is empty
+\ifdefstring{\documentLanguage}{en} % if \documentLanguage is 'en'
+    % then:
+    {}
+    % else:
+    {
+        \ifdefempty{\specialGrammar} % if \specialGrammar is empty
+            % then:
+            {
+                \PackageError{Parameter}{Settings Error}{Parameter 'specialGrammar' in 'content/settings.tex' must not be empty.}
+            }
+            % else:
+            {}
+    }
+
+
+% Check if \printTitlepage is either 'true' or 'false
+\ifTrue{\printTitlepage} % if \printTitlepage is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printTitlepage} % if \printTitlepage is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printTitlepage' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printCompanyLogo is either 'true' or 'false
+\ifTrue{\printCompanyLogo} % if \printCompanyLogo is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printCompanyLogo} % if \printCompanyLogo is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printCompanyLogo' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if file with the path \companyLogoPath exists
+\ifTrue{\printCompanyLogo} % if \printCompanyLogo is true
+    % then:
+    {
+        \IfFileExists{\companyLogoPath} % if file exists at \companyLogoPath
+            % then:
+            {}
+            % else:
+            {
+                \PackageError{Parameter}{Settings Error}{Parameter '\companyLogoPath' for 'companyLogoPath' in 'content/settings.tex' must be a path to an existing file.}
+            }
+    }
+    % else:
+    {}
+
+
+% Check if \printDeclaration is either 'true' or 'false
+\ifTrue{\printDeclaration} % if \printDeclaration is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printDeclaration} % if \printDeclaration is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printDeclaration' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printForeword is either 'true' or 'false
+\ifTrue{\printForeword} % if \printForeword is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printForeword} % if \printForeword is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printForeword' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printAbstract is either 'true' or 'false
+\ifTrue{\printAbstract} % if \printAbstract is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printAbstract} % if \printAbstract is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printAbstract' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printTableOfContents is either 'true' or 'false
+\ifTrue{\printTableOfContents} % if \printTableOfContents is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printTableOfContents} % if \printTableOfContents is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printTableOfContents' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printListOfFigures is either 'true' or 'false
+\ifTrue{\printListOfFigures} % if \printListOfFigures is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printListOfFigures} % if \printListOfFigures is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printListOfFigures' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printListOfTables is either 'true' or 'false
+\ifTrue{\printListOfTables} % if \printListOfTables is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printListOfTables} % if \printListOfTables is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printListOfTables' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printListOfEquations is either 'true' or 'false
+\ifTrue{\printListOfEquations} % if \printListOfEquations is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printListOfEquations} % if \printListOfEquations is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printListOfEquations' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printListOfTables is either 'true' or 'false
+\ifTrue{\printListOfListings} % if \printListOfListings is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printListOfListings} % if \printListOfListings is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printListOfListings' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printListOfAbbreviation is either 'true' or 'false
+\ifTrue{\printListOfAbbreviation} % if \printListOfAbbreviation is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printListOfAbbreviation} % if \printListOfAbbreviation is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printListOfAbbreviation' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printListOfSymbols is either 'true' or 'false
+\ifTrue{\printListOfSymbols} % if \printListOfSymbols is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printListOfSymbols} % if \printListOfSymbols is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printListOfSymbols' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printBibliography is either 'true' or 'false
+\ifTrue{\printBibliography} % if \printBibliography is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printBibliography} % if \printBibliography is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printBibliography' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }
+
+
+% Check if \printAppendix is either 'true' or 'false
+\ifTrue{\printAppendix} % if \printAppendix is true
+    % then:
+    {}
+    % else:
+    { \ifFalse{\printAppendix} % if \printAppendix is false
+        % then:
+        {}
+        % else:
+        {
+            \PackageError{Parameter}{Settings Error}{Parameter 'printAppendix' in 'content/settings.tex' must be either 'true' or 'false'.}
+        }
+    }

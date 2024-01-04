@@ -1,0 +1,98 @@
+\chapter{The second chapter}
+
+\section{Citations}
+The \texttt{\textbackslash{}cite\{\}} command is used for citing. This references an entry in the Bibtex (/content/bibliography.bib). Entries can be created there yourself or copied in. Publishers often provide the option of directly outputting the correct Bibtex entry. Otherwise, however, there are also tools that convert different identifiers, such as DOI or IBAN, to Bibtex (e.g. \href{https://www.doi2bib.org/}{https://www.doi2bib.org/} or \href{https://www.bibtex.com/c/doi-to-bibtex-converter/}{https://www.bibtex.com/c/doi-to-bibtex-converter/}).
+
+An entry provided by the publisher looks like this, for example.
+\begin{lstlisting}[caption=Example of an bibtex entry, label=lst:bibtex_def_en, language=bash]
+@Inbook{Lieb2004,
+author="Lieb, Elliott H. and Yngvason, Jakob",
+editor="Nachtergaele, Bruno and Solovej, Jan Philip and Yngvason, Jakob",
+title="A Guide to Entropy and the Second Law of Thermodynamics",
+bookTitle="Statistical Mechanics: Selecta of Elliott H. Lieb",
+year="2004",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="353--363",
+abstract="This article is intended for readers who, like us, were told that the second law of thermodynamics is one of the major achievements of the nineteenth cenwry---that it is a logical, perfect, and unbreakable law---but who were unsatisfied with the ``derivations'' of the entropy principle as found in textbooks and in popular writings.",
+isbn="978-3-662-10018-9",
+doi="10.1007/978-3-662-10018-9_19",
+url="https://doi.org/10.1007/978-3-662-10018-9_19"
+}
+\end{lstlisting}
+
+The identifier \texttt{Lieb2004} can be customized as desired. If this is now used in the \texttt{\textbackslash{}cite\{\}} command, all relevant information is automatically inserted into the bibliography and a link to it is created in the text itself.
+
+Example: This is a statement that is not my own intellectual property \cite{Lieb2004}.
+
+
+\section{Footnotes}
+Footnotes are created with the command \texttt{\textbackslash{}footnote\{\}}. This is what a footnote\footnote{This is a footnote} looks like.
+
+\section{Abbreviations}
+Abbreviations are often used in technical jargon. To define and explain these, there is a list of abbreviations. To create this, the abbreviation must first be defined in the file /content/specialPages/ListOfAbbreviation.tex.
+
+\begin{lstlisting}[caption=Example of an akromym definition, label=lst:acronym_def_en, language=bash]
+\acro{THU}{Technische Hochschule Ulm}
+\acro{LAN}{Local Area Network}
+\end{lstlisting}
+
+The first curly bracket contains the abbreviation, the second the meaning.
+
+Once this has been done, the abbreviation can now be accessed here in the continuous text with the command \texttt{\textbackslash{}ac\{\}}. The first time this is done, the meaning is output first and then the abbreviation in brackets. Example: This template is for the \ac{THU}.
+
+From now on, only the abbreviation will be printed. Example: This is the LaTeX template for theses within the \ac{THU}.
+
+Instead of the command \texttt{\textbackslash{}ac\{\}}, other commands that work slightly differently can also be used. However, it is recommended to use the \texttt{\textbackslash{}ac\{\}} command as far as possible instead of manually using \texttt{\textbackslash{}acs\{\}} and \texttt{\textbackslash{}acf\{\}}.
+
+\begin{itemize}
+    \item \texttt{\textbackslash{}ac\{\}} inserts the abbreviation; the first time it is called up, the full version is automatically inserted before it. $\rightarrow$ \textit{recommended use}
+    \item \texttt{\textbackslash{}acs\{\}} inserts the abbreviation. $\rightarrow$ e.g. \enquote{THU}
+    \item \texttt{\textbackslash{}acf\{\}} inserts the abbreviation \textbf{and} the explanation. $\rightarrow$ e.g. \enquote{Technische Hochschule Ulm (THU)}
+    \item \texttt{\textbackslash{}acl\{\}} inserts only the explanation. $\rightarrow$ e.g. \enquote{Technische Hochschule Ulm}
+    \item \texttt{\textbackslash{}acp\{\}} outputs plural (appends \enquote{s}). The additional \enquote{p} inside the command also works with the above commands.
+\end{itemize}
+
+
+\section{Symbols}
+Symbols work similarly to abbreviations. To do this, the symbol must first be defined in the file /content/specialPages/SymbolDirectory.tex.
+
+\begin{lstlisting}[caption=Example of a symbol definition, label=lst:symbol_def_en, language=bash]
+\newSymbol{V}{$V$}{volume}
+\newSymbol{v0}{$v_{0}$}{initial speed}
+\newSymbol{c2}{$c^2$}{squared speed of light}
+\newSymbol{rho}{$\rho$}{density}
+\newSymbol{DeltaT}{$\Delta T$}{temperature difference}
+\end{lstlisting}
+
+The first curly bracket contains the reference used to access the symbol, the second curly bracket contains the mathematical symbol itself, and the third contains the meaning. The mathematical symbol must be enclosed by \texttt{\$...\$} characters. A list of usable mathematical symbols can be found here, for example: \href{https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf}{https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf}
+
+The \texttt{\textbackslash{}sym\{\}} command is then used to access these symbols. Alternatively, \texttt{\textbackslash{}symf\{\}} or \texttt{\textbackslash{}syml\{\}} can be used as required.
+
+Example: This results in \symf{V}.
+
+Possible commands:
+\begin{itemize}
+    \item \texttt{\textbackslash{}sym\{\}} inserts the abbreviation. $\rightarrow$ e.g. \enquote{V}
+    \item \texttt{\textbackslash{}symf\{\}} inserts the abbreviation and the explanation. $\rightarrow$ e.g. \enquote{volume V}
+    \item \texttt{\textbackslash{}syml\{\}} inserts only the explanation. $\rightarrow$ e.g. \enquote{volume}
+\end{itemize}
+
+
+\section{Glossary}
+The glossary also works in a similar way to the list of abbreviations. It explains words that are largely self-explanatory in technical jargon but generally unknown. The entries are defined in the file /content/specialPages/Glossary.tex
+
+\begin{lstlisting}[caption=Example of an glossary definition, label=lst:glossary_def_en, language=bash]
+\newglossaryentry{hash}
+{
+    name = {hash},
+    plural = {hashes},
+    description = {Hashing is a process that can be used, for example, to change a password into a text that cannot be converted back. In this way, data that is only used for comparison can be stored more securely.}
+}
+\end{lstlisting}
+
+The command \texttt{\textbackslash{}gls\{\}} inserts the corresponding word with a link to the explanation in the glossary. The command \texttt{\textbackslash{}glspl\{\}} outputs its plural definition.
+
+Example: A \gls{hash} made of different \glspl{hash} is also possible.
+
+With \texttt{\textbackslash{}Gls\{\}} and \texttt{\textbackslash{}Glspl\{\}} you can output the word with a capitalized initial letter. This can be used in the beginning of a sentence, for example.

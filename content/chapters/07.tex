@@ -1,0 +1,15 @@
+\chapter{The third chapter}
+
+\section{Settings}
+In the file /content/settings.tex, document-specific values such as the name of the author and the title of the thesis must be edited. Especially, the document language can be switched to English in there as well. All the parameters are also explained in the file. Further descriptions can be found in README\_english.md.
+
+It is recommended that the output parameters are only defined at the end in order to remove unused pages. This prevents content from not being generated correctly if, for example, the definition of abbreviations is missing.
+
+\subsubsection{Notice:}
+If the glossary is empty, it is only displayed as an empty page without a corresponding heading.
+
+
+\section{Foreword and abstract}
+The foreword can be written in the file /content/specialPages/Foreword.tex. The command \texttt{\textbackslash{}signature} inserts the block for the signature(s).
+
+The abstract is output in both German and English in the German settings but only in English in the English settings. For this reason, the Abstract\_en.tex file and eventually the Abstract\_de.tex file in the /content/specialPages/ folder must be edited. This includes the definition of the keywords, which cannot be omitted.

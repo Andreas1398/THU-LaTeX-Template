@@ -1,0 +1,27 @@
+%!TEX root = ../../main.tex
+
+\newcommand{\keywords}[1]{
+    \renewcommand{\keywords}{#1}
+}
+
+
+\foreignlanguage{english}{
+
+\chapter*{\abstractPhrase\markboth{\abstractPhrase}{}}
+
+\input{content/specialPages/Abstract_en}
+
+\vspace*{0.5cm}
+\subsubsection{\keywordsPhrase}
+\keywords{}
+
+}
+
+% Raise warning if \keywords is empty
+\ifdefempty{\keywords} % if \keywords is empty
+    % then:
+    {
+        \PackageWarning{Parameter}{Parameter 'keywords' in 'content/specialPages/Abstract_en.tex' must not be empty.}
+    }
+    % else:
+    {}

@@ -1,0 +1,43 @@
+%!TEX root = ../../main.tex
+
+\chapter*{\declarationPhrase\markboth{\declarationPhrase}{}}
+
+
+\newcommand{\thisDeclaration}{\declaration}
+
+
+\ifdefempty{\secondAuthor} % if \secondAuthor is empty
+    % then:
+    {}
+    % else:
+    {
+        \renewcommand{\thisDeclaration}{\declarationMultipleAuthors}
+    }
+
+\ifdefempty{\thirdAuthor} % if \thirdAuthor is empty
+    % then:
+    {}
+    % else:
+    {
+        \renewcommand{\thisDeclaration}{\declarationMultipleAuthors}
+    }
+
+\ifdefempty{\fourthAuthor} % if \fourthAuthor is empty
+    % then:
+    {}
+    % else:
+    {
+        \renewcommand{\thisDeclaration}{\declarationMultipleAuthors}
+    }
+
+\ifdefempty{\fifthAuthor} % if \fifthAuthor is empty
+    % then:
+    {}
+    % else:
+    {
+        \renewcommand{\thisDeclaration}{\declarationMultipleAuthors}
+    }
+
+
+\thisDeclaration
+\signature

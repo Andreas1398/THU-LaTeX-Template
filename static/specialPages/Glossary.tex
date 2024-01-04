@@ -1,0 +1,15 @@
+%!TEX root = ../../main.tex
+
+% Set hyperlink in Table of Contents
+\addcontentsline{toc}{chapter}{\protect\hyperlink{gls}{\glossaryPhrase}}
+\hypertarget{gls}{}
+
+\input{content/specialPages/Glossary}
+
+% input chapter title regardless of the content
+\chapter*{\glossaryPhrase}
+
+% input glossary without any title and shiftet up
+\setglossarysection{section}
+\vspace{-35pt}
+\printglossary[style=altlist,title={},nonumberlist]

@@ -1,0 +1,22 @@
+%!TEX root = ../../main.tex
+
+\newcommand{\germanKeywords}[1]{
+    \renewcommand{\germanKeywords}{#1}
+}
+
+\chapter*{\germanAbstractPhrase\markboth{\germanAbstractPhrase}{}}
+
+\input{content/specialPages/Abstract_de}
+
+\vspace*{0.5cm}
+\subsubsection{\germanKeywordsPhrase}
+\germanKeywords{}
+
+% Raise warning if \germanKeywords is empty
+\ifdefempty{\germanKeywords} % if \germanKeywords is empty
+    % then:
+    {
+        \PackageWarning{Parameter}{Parameter 'germanKeywords' in 'content/specialPages/Abstract_de.tex' must not be empty.}
+    }
+    % else:
+    {}

@@ -1,0 +1,115 @@
+%!TEX root = ../../main.tex
+
+\thispagestyle{titlePageheader}
+
+\vspace*{2cm}
+\vfill
+
+\begin{center}
+
+    {\begin{spacing}{6}\fontsize{25}{5}\selectfont \textbf{\documentType}\end{spacing}{}}
+
+    \vspace{1cm}
+    {\begin{spacing}{6}\fontsize{25}{5}\selectfont \documentTitle \end{spacing}{}}\par
+
+    \ifdefempty{\academicDegree} % if \academicDegree is empty
+    % then:
+    {}
+    % else:
+    {
+        \vspace{1cm}
+        {\fontsize{12}{5}\selectfont \academicDegreePhrase}\par
+        
+        \vspace{1cm}
+        {\begin{spacing}{5}\fontsize{20}{5}\selectfont \textbf{\academicDegree}\end{spacing}}\par
+    }
+
+    \ifdefempty{\studyProgram} % if \studyProgram is empty
+    % then:
+    {}
+    % else:
+    {
+        \vspace{1cm}
+        {\fontsize{14}{5}\selectfont \studyProgramPhrase}\par
+
+        \vspace{1cm}
+        {\begin{spacing}{5}\fontsize{20}{5}\selectfont \textbf{\studyProgram}\end{spacing}}\par
+    }
+
+\end{center}
+
+\vfill
+
+\newcommand*{\getNameAndNumber}[2]{\ifdefempty{#2}{#1}{#1, #2}}
+% if #2 is empty, then: "#1", else: "#1, #2"
+
+\begin{spacing}{1.5}
+\begin{tabbing}
+
+    mmmmmmmmmmmmmmmm \= \kill
+    {\authorPhrase} \> {\getNameAndNumber{\documentAuthor}{\matriculationNumber}}
+
+    \ifdefempty{\secondAuthor} % if \secondAuthor is empty
+        % then:
+        {}
+        % else:
+        {
+            \\ \> {\getNameAndNumber{\secondAuthor}{\secondMatriculationNumber}}
+        }
+
+    \ifdefempty{\thirdAuthor} % if \thirdAuthor is empty
+        % then:
+        {}
+        % else:
+        {
+            \\ \> {\getNameAndNumber{\thirdAuthor}{\thirdMatriculationNumber}}
+        }
+
+    \ifdefempty{\fourthAuthor} % if \fourthAuthor is empty
+        % then:
+        {}
+        % else:
+        {
+            \\ \> {\getNameAndNumber{\fourthAuthor}{\fourthMatriculationNumber}}
+        }
+
+    \ifdefempty{\fifthAuthor} % if \fifthAuthor is empty
+        % then:
+        {}
+        % else:
+        {
+            \\ \> {\getNameAndNumber{\fifthAuthor}{\fifthMatriculationNumber}}
+        }
+
+
+    \ifdefempty{\secondExaminer} % if \secondExaminer is empty
+        % then:
+        {
+            \\{\onlyExaminerPhrase} \> {\firstExaminer}
+        }
+        % else:
+        {
+            \\{\firstExaminerPhrase} \> {\firstExaminer}
+            \\{\secondExaminerPhrase} \> {\secondExaminer}
+        }
+
+    \ifdefempty{\coSupervisor} % if \coSupervisor is empty
+        % then:
+        {}
+        % else:
+        {
+            \\{\coSupervisorPhrase} \> {\coSupervisor}
+        }
+        
+    \ifdefempty{\courseOfStudies} % if \courseOfStudies is empty
+        % then:
+        {}
+        % else:
+        {
+            \\{\courseOfStudiesPhrase} \> {\courseOfStudies}
+        }        
+
+    \\{\submissionDatePhrase} \> {\submissionDate}
+
+\end{tabbing}
+\end{spacing}

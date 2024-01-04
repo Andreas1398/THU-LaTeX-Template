@@ -1,0 +1,96 @@
+%!TEX root = ../main.tex
+
+\usepackage[export]{adjustbox}
+%\usepackage{adjustbox}
+\usepackage{lipsum}
+\usepackage{parskip}
+\usepackage{ifthen}
+\usepackage{comment}
+\usepackage{xstring}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[activate]{microtype}
+\usepackage{makeidx}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage[all]{nowidow}
+\usepackage{float}
+\usepackage{array}
+\usepackage{calc}
+\usepackage[right]{eurosym}
+\usepackage{wrapfig}
+\usepackage{pgffor}
+\usepackage[perpage, hang, multiple, stable, bottom]{footmisc}
+\usepackage[printonlyused]{acronym}
+\usepackage{listings}
+\usepackage[obeyFinal,backgroundcolor=yellow,linecolor=black]{todonotes}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bookmark}
+\usepackage[nopostdot]{glossaries}
+\usepackage{svg}
+
+
+% Input custom commands, settings and check settings
+\input{static/customCommands}
+\input{content/settings}
+\emptyAllUnchangedParameters
+\input{static/checkSettings}
+
+
+% Load language specific strings
+\input{static/languages/\documentLanguage}
+
+% Translate common pre-defined parameters from the babel package:
+\newcommand*{\customLanguageParameters}{
+    \renewcommand{\contentsname}{\tableOfContentsPhrase}
+    \renewcommand{\listfigurename}{\listOfFiguresPhrase}
+    \renewcommand{\listtablename}{\listOfTablesPhrase}
+    \renewcommand{\lstlistlistingname}{\listOfListingsPhrase}
+    \renewcommand{\bibname}{\bibliographyPhrase}
+    \renewcommand{\appendixname}{\appendixPhrase}
+    \renewcommand{\tablename}{\tablePhrase}
+    \renewcommand{\figurename}{\figurePhrase}
+    \renewcommand{\lstlistingname}{\listingPhrase}
+}
+
+\customLanguageParameters{}
+
+\addto\captionsngerman{
+    \customLanguageParameters
+    \renewcommand{\abstractname}{\germanAbstractPhrase}
+}
+\addto\captionsenglish{
+    \customLanguageParameters
+    \renewcommand{\abstractname}{\abstractPhrase}
+}
+
+
+% Generate Signature line(s)
+\newcommand{\getSignature}[1]{
+    \ifdefempty{#1} % if parameter #1 is empty
+    % then:
+    {}
+    % else:
+    {
+        \begin{minipage}{0.5\textwidth}\vspace{1.5cm}\rule{0.7\textwidth}{0.2mm}\newline#1\end{minipage}
+    }
+}
+
+\newcommand{\signature}{
+    \par\vspace*{0.8cm}\locationAndDate\newline\getSignature{\documentAuthor}\getSignature{\secondAuthor}\getSignature{\thirdAuthor}\getSignature{\fourthAuthor}\getSignature{\fifthAuthor}
+}
+
+
+% Graphics path
+\graphicspath{{content/images/}}
+
+
+% Enable use of glossary
+\makeglossaries

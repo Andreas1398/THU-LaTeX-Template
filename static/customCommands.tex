@@ -1,0 +1,236 @@
+%!TEX root = ../main.tex
+
+%%% Custom logical commands %%%
+\newcommand{\ifTrue}[3]
+{
+    \ifdefstring{#1}{true} % if parameter #1 is true
+    % then:
+    {#2}
+    % else:
+    {#3}
+}
+
+\newcommand{\ifFalse}[3]
+{
+    \ifdefstring{#1}{false} % if parameter #1 is true
+    % then:
+    {#2}
+    % else:
+    {#3}
+}
+
+
+
+
+%%% Custom settings commands %%%
+% this simplifies the settings made in the settings.tex
+
+\newcommand{\documentType}[1]{
+    \newcommand{\documentTypeChange}{true}
+    \renewcommand{\documentType}{#1}
+}
+
+\newcommand{\documentTitle}[1]{
+    \newcommand{\documentTitleChange}{true}
+    \renewcommand{\documentTitle}{#1}
+}
+\newcommand{\academicDegree}[1]{
+    \newcommand{\academicDegreeChange}{true}
+    \renewcommand{\academicDegree}{#1}
+}
+\newcommand{\studyProgram}[1]{
+    \newcommand{\studyProgramChange}{true}
+    \renewcommand{\studyProgram}{#1}
+}
+\newcommand{\documentAuthor}[1]{
+    \newcommand{\documentAuthorChange}{true}
+    \renewcommand{\documentAuthor}{#1}
+}
+\newcommand{\matriculationNumber}[1]{
+    \newcommand{\matriculationNumberChange}{true}
+    \renewcommand{\matriculationNumber}{#1}
+}
+\newcommand{\secondAuthor}[1]{
+    \newcommand{\secondAuthorChange}{true}
+    \renewcommand{\secondAuthor}{#1}
+}
+\newcommand{\secondMatriculationNumber}[1]{
+    \newcommand{\secondMatriculationNumberChange}{true}
+    \renewcommand{\secondMatriculationNumber}{#1}
+}
+\newcommand{\thirdAuthor}[1]{
+    \newcommand{\thirdAuthorChange}{true}
+    \renewcommand{\thirdAuthor}{#1}
+}
+\newcommand{\thirdMatriculationNumber}[1]{
+    \newcommand{\thirdMatriculationNumberChange}{true}
+    \renewcommand{\thirdMatriculationNumber}{#1}
+}
+\newcommand{\fourthAuthor}[1]{
+    \newcommand{\fourthAuthorChange}{true}
+    \renewcommand{\fourthAuthor}{#1}
+}
+\newcommand{\fourthMatriculationNumber}[1]{
+    \newcommand{\fourthMatriculationNumberChange}{true}
+    \renewcommand{\fourthMatriculationNumber}{#1}
+}
+\newcommand{\fifthAuthor}[1]{
+    \newcommand{\fifthAuthorChange}{true}
+    \renewcommand{\fifthAuthor}{#1}
+}
+\newcommand{\fifthMatriculationNumber}[1]{
+    \newcommand{\fifthMatriculationNumberChange}{true}
+    \renewcommand{\fifthMatriculationNumber}{#1}
+}
+\newcommand{\firstExaminer}[1]{
+    \newcommand{\firstExaminerChange}{true}
+    \renewcommand{\firstExaminer}{#1}
+}
+\newcommand{\secondExaminer}[1]{
+    \newcommand{\secondExaminerChange}{true}
+    \renewcommand{\secondExaminer}{#1}
+}
+\newcommand{\coSupervisor}[1]{
+    \newcommand{\coSupervisorChange}{true}
+    \renewcommand{\coSupervisor}{#1}
+}
+\newcommand{\courseOfStudies}[1]{
+    \newcommand{\courseOfStudiesChange}{true}
+    \renewcommand{\courseOfStudies}{#1}
+}
+\newcommand{\submissionDate}[1]{
+    \newcommand{\submissionDateChange}{true}
+    \renewcommand{\submissionDate}{#1}
+}
+\newcommand{\location}[1]{
+    \newcommand{\locationChange}{true}
+    \renewcommand{\location}{#1}
+}
+\newcommand{\documentLanguage}[1]{
+    \newcommand{\documentLanguageChange}{true}
+    \renewcommand{\documentLanguage}{#1}
+}
+\newcommand{\specialGrammar}[1]{
+    \newcommand{\specialGrammarChange}{true}
+    \renewcommand{\specialGrammar}{#1}
+}
+\newcommand{\printTitlepage}[1]{
+    \newcommand{\printTitlepageChange}{true}
+    \renewcommand{\printTitlepage}{#1}
+}
+\newcommand{\printCompanyLogo}[1]{
+    \newcommand{\printCompanyLogoChange}{true}
+    \renewcommand{\printCompanyLogo}{#1}
+}
+\newcommand{\companyLogoPath}[1]{
+    \newcommand{\companyLogoPathChange}{true}
+    \renewcommand{\companyLogoPath}{#1}
+}
+\newcommand{\printDeclaration}[1]{
+    \newcommand{\printDeclarationChange}{true}
+    \renewcommand{\printDeclaration}{#1}
+}
+\newcommand{\printForeword}[1]{
+    \newcommand{\printForewordChange}{true}
+    \renewcommand{\printForeword}{#1}
+}
+\newcommand{\printAbstract}[1]{
+    \newcommand{\printAbstractChange}{true}
+    \renewcommand{\printAbstract}{#1}
+}
+\newcommand{\printTableOfContents}[1]{
+    \newcommand{\printTableOfContentsChange}{true}
+    \renewcommand{\printTableOfContents}{#1}
+}
+\newcommand{\printListOfFigures}[1]{
+    \newcommand{\printListOfFiguresChange}{true}
+    \renewcommand{\printListOfFigures}{#1}
+}
+\newcommand{\printListOfTables}[1]{
+    \newcommand{\printListOfTablesChange}{true}
+    \renewcommand{\printListOfTables}{#1}
+}
+\newcommand{\printListOfEquations}[1]{
+    \newcommand{\printListOfEquationsChange}{true}
+    \renewcommand{\printListOfEquations}{#1}
+}
+\newcommand{\printListOfListings}[1]{
+    \newcommand{\printListOfListingsChange}{true}
+    \renewcommand{\printListOfListings}{#1}
+}
+\newcommand{\printListOfAbbreviation}[1]{
+    \newcommand{\printListOfAbbreviationChange}{true}
+    \renewcommand{\printListOfAbbreviation}{#1}
+}
+\newcommand{\printListOfSymbols}[1]{
+    \newcommand{\printListOfSymbolsChange}{true}
+    \renewcommand{\printListOfSymbols}{#1}
+}
+\newcommand{\printBibliography}[1]{
+    \newcommand{\printBibliographyChange}{true}
+    \renewcommand{\printBibliography}{#1}
+}
+\newcommand{\printGlossary}[1]{
+    \newcommand{\printGlossaryChange}{true}
+    \renewcommand{\printGlossary}{#1}
+}
+\newcommand{\printAppendix}[1]{
+    \newcommand{\printAppendixChange}{true}
+    \renewcommand{\printAppendix}{#1}
+}
+
+
+
+
+\newcommand{\emptyUnchangedParameter}[2]
+{
+    \ifTrue{#2}
+        % then:
+        {}
+        % else:
+        {
+            #1{}
+        }
+}
+
+\newcommand{\emptyAllUnchangedParameters}
+{
+    \emptyUnchangedParameter{\documentType}{\documentTypeChange}
+    \emptyUnchangedParameter{\documentTitle}{\documentTitleChange}
+    \emptyUnchangedParameter{\academicDegree}{\academicDegreeChange}
+    \emptyUnchangedParameter{\studyProgram}{\studyProgramChange}
+    \emptyUnchangedParameter{\documentAuthor}{\documentAuthorChange}
+    \emptyUnchangedParameter{\matriculationNumber}{\matriculationNumberChange}
+    \emptyUnchangedParameter{\secondAuthor}{\secondAuthorChange}
+    \emptyUnchangedParameter{\secondMatriculationNumber}{\secondMatriculationNumberChange}
+    \emptyUnchangedParameter{\thirdAuthor}{\thirdAuthorChange}
+    \emptyUnchangedParameter{\thirdMatriculationNumber}{\thirdMatriculationNumberChange}
+    \emptyUnchangedParameter{\fourthAuthor}{\fourthAuthorChange}
+    \emptyUnchangedParameter{\fourthMatriculationNumber}{\fourthMatriculationNumberChange}
+    \emptyUnchangedParameter{\fifthAuthor}{\fifthAuthorChange}
+    \emptyUnchangedParameter{\fifthMatriculationNumber}{\fifthMatriculationNumberChange}
+    \emptyUnchangedParameter{\firstExaminer}{\firstExaminerChange}
+    \emptyUnchangedParameter{\secondExaminer}{\secondExaminerChange}
+    \emptyUnchangedParameter{\coSupervisor}{\coSupervisorChange}
+    \emptyUnchangedParameter{\courseOfStudies}{\courseOfStudiesChange}
+    \emptyUnchangedParameter{\submissionDate}{\submissionDateChange}
+    \emptyUnchangedParameter{\location}{\locationChange}
+    \emptyUnchangedParameter{\documentLanguage}{\documentLanguageChange}
+    \emptyUnchangedParameter{\specialGrammar}{\specialGrammarChange}
+    \emptyUnchangedParameter{\printTitlepage}{\printTitlepageChange}
+    \emptyUnchangedParameter{\printCompanyLogo}{\printCompanyLogoChange}
+    \emptyUnchangedParameter{\companyLogoPath}{\companyLogoPathChange}
+    \emptyUnchangedParameter{\printDeclaration}{\printDeclarationChange}
+    \emptyUnchangedParameter{\printForeword}{\printForewordChange}
+    \emptyUnchangedParameter{\printAbstract}{\printAbstractChange}
+    \emptyUnchangedParameter{\printTableOfContents}{\printTableOfContentsChange}
+    \emptyUnchangedParameter{\printListOfFigures}{\printListOfFiguresChange}
+    \emptyUnchangedParameter{\printListOfTables}{\printListOfTablesChange}
+    \emptyUnchangedParameter{\printListOfEquations}{\printListOfEquationsChange}
+    \emptyUnchangedParameter{\printListOfListings}{\printListOfListingsChange}
+    \emptyUnchangedParameter{\printListOfAbbreviation}{\printListOfAbbreviationChange}
+    \emptyUnchangedParameter{\printListOfSymbols}{\printListOfSymbolsChange}
+    \emptyUnchangedParameter{\printBibliography}{\printBibliographyChange}
+    \emptyUnchangedParameter{\printGlossary}{\printGlossaryChange}
+    \emptyUnchangedParameter{\printAppendix}{\printAppendixChange}
+}

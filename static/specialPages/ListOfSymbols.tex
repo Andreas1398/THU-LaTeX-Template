@@ -1,0 +1,31 @@
+%!TEX root = ../../main.tex
+
+% Define custom commands
+\newcommand{\newSymbol}[3]{\acro{Symbol_#1}[#2]{#3}}
+\newcommand{\sym}[1]{\acs{Symbol_#1}}
+\newcommand{\symf}[1]{\acl{Symbol_#1} \acs{Symbol_#1}}
+\newcommand{\syml}[1]{\acl{Symbol_#1}}
+
+
+% Set hyperlink
+\addcontentsline{toc}{chapter}{\protect\hyperlink{los}{\listOfSymbolsPhrase}}
+\hypertarget{los}{}
+
+\chapter*{\listOfSymbolsPhrase\markboth{\listOfSymbolsPhrase}{}}
+
+\vspace{-7pt}
+
+\begin{spacing}{2}
+
+\ActivateWarningFilters[symbols]
+\ActivateErrorFilters[no-acros]
+
+\begin{acronym}[MMMMM]
+\setlength{\itemsep}{-\parsep}
+\input{content/specialPages/ListOfSymbols}
+\end{acronym}
+
+\DeactivateWarningFilters[symbols]
+\DeactivateErrorFilters[no-acros]
+
+\end{spacing}

@@ -1,0 +1,98 @@
+\chapter{Das zweite Kapitel}
+
+\section{Zitieren}
+Zum Zitieren wird der \texttt{\textbackslash{}cite\{\}}-Befehl genutzt. Dieser referenziert zu einem Eintrag in der Bibtex (/content/bibliography.bib). Einträge können dort selbst erstellt oder hineinkopiert werden. Oftmals geben Publisher die Möglichkeit, direkt den richtigen Bibtex-Eintrag auszugeben. Anderenfalls gibt es jedoch auch Tools, die unterschiedliche Identifier, wie beispielsweise DOI oder IBAN, zu Bibtex konvertieren (z.B. \href{https://www.doi2bib.org/}{https://www.doi2bib.org/} oder \href{https://www.bibtex.com/c/doi-to-bibtex-converter/}{https://www.bibtex.com/c/doi-to-bibtex-converter/}).
+
+Ein vom Publisher bereitgestellter Eintrag sieht beispielsweise wie folgt aus.
+\begin{lstlisting}[caption=Beispiel eines Bibtex-Eintrags, label=lst:bibtex_def, language=bash]
+@Inbook{Lieb2004,
+author="Lieb, Elliott H. and Yngvason, Jakob",
+editor="Nachtergaele, Bruno and Solovej, Jan Philip and Yngvason, Jakob",
+title="A Guide to Entropy and the Second Law of Thermodynamics",
+bookTitle="Statistical Mechanics: Selecta of Elliott H. Lieb",
+year="2004",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="353--363",
+abstract="This article is intended for readers who, like us, were told that the second law of thermodynamics is one of the major achievements of the nineteenth cenwry---that it is a logical, perfect, and unbreakable law---but who were unsatisfied with the ``derivations'' of the entropy principle as found in textbooks and in popular writings.",
+isbn="978-3-662-10018-9",
+doi="10.1007/978-3-662-10018-9_19",
+url="https://doi.org/10.1007/978-3-662-10018-9_19"
+}
+\end{lstlisting}
+
+Der Identifier \texttt{Lieb2004} kann hierbei nach eigenen Wünschen angepasst werden. Wenn dieser nun im \texttt{\textbackslash{}cite\{\}}-Befehl genutzt wird, werden automatisch alle relevanten Informationen in das Literaturverzeichnis eingefügt und im Text selbst eine Verlinkung dazu erstellt.
+
+Beispiel: Das ist eine Aussage, die nicht mein eigenes geistiges Eigentum ist \cite{Lieb2004}.
+
+
+\section{Fußnoten}
+Fußnoten erstellt man mit dem Befehl \texttt{\textbackslash{}footnote\{\}}. So sieht dann eine Fußnote\footnote{Das hier ist eine Fußnote} aus.
+
+\section{Abkürzungen}
+Oftmals wird im Fachjargon Abkürzungen benutzt. Um diese zu definieren und zu erklären, gibt es das Abkürzungsverzeichnis. Um das anzulegen, muss zuerst die Abkürzung in der Datei /content/specialPages/ListOfAbbreviation.tex definiert werden.
+
+\begin{lstlisting}[caption=Beispiel einer Akromym-Definition, label=lst:acronym_def, language=bash]
+\acro{THU}{Technische Hochschule Ulm}
+\acro{LAN}{Local Area Network}
+\end{lstlisting}
+
+In der ersten geschweiften Klammer steht die Abkürzung, in der zweiten die Bedeutung.
+
+Wenn dies getan ist, kann nun hier im Fließtext mit dem Befehl \texttt{\textbackslash{}ac\{\}} auf die Abkürzung zugegriffen werden. Das erste Mal, wenn dies getan wird, wird zuerst die Bedeutung und dann die Abkürzung in Klammern ausgegeben. Beispiel: Diese Vorlage ist für die \ac{THU}.
+
+Daraufhin wird ab sofort nur noch die Abkürzung abgedruckt. Beispiel: Dies ist die LaTeX-Vorlage für Arbeiten innerhalb der \ac{THU}.
+
+Anstatt des Befehls \texttt{\textbackslash{}ac\{\}} können auch andere Befehle genutzt werden, die leicht anders funktionieren. Es wird jedoch empfohlen, weitestgehend den \texttt{\textbackslash{}ac\{\}}-Befehl zu nutzen anstatt manuell \texttt{\textbackslash{}acs\{\}} und \texttt{\textbackslash{}acf\{\}} zu verwenden.
+
+\begin{itemize}
+    \item \texttt{\textbackslash{}ac\{\}} fügt die Abkürzung ein, beim ersten Aufruf wird zusätzlich automatisch die ausgeschriebene Version davor eingefügt. $\rightarrow$ \textit{empfohlene Verwendung}
+    \item \texttt{\textbackslash{}acs\{\}} fügt die Abkürzung ein $\rightarrow$ z.B. \enquote{THU}
+    \item \texttt{\textbackslash{}acf\{\}} fügt die Abkürzung \textbf{und} die Erklärung ein $\rightarrow$ z.B. \enquote{Technische Hochschule Ulm (THU)}
+    \item \texttt{\textbackslash{}acl\{\}} fügt nur die Erklärung ein $\rightarrow$ z.B. \enquote{Technische Hochschule Ulm}
+    \item \texttt{\textbackslash{}acp\{\}} gibt Plural aus (angefügtes \enquote{s}). Das zusätzliche \enquote{p} funktioniert auch bei obigen Befehlen
+\end{itemize}
+
+
+\section{Symbole}
+Symbole funktionieren ähnlich wie Abkürzungen. Dafür muss das Symbol zuerst in der Datei /content/specialPages/SymbolDirectory.tex definiert werden.
+
+\begin{lstlisting}[caption=Beispiel einer Symbol-Definition, label=lst:symbol_def, language=bash]
+\newSymbol{V}{$V$}{Volumen}
+\newSymbol{v0}{$v_{0}$}{Anfangsgeschwindigkeit}
+\newSymbol{c2}{$c^2$}{Quadrierte Lichtgeschwindigkeit}
+\newSymbol{rho}{$\rho$}{Dichte}
+\newSymbol{DeltaT}{$\Delta T$}{Temperaturdifferenz}
+\end{lstlisting}
+
+In der ersten geschweiften Klammer steht die Referenz, mit der auf das Symbol zugegriffen wird, in der zweiten geschweiften Klammer das mathematische Symbol und in der dritten die Bedeutung. Das mathematische Symbol muss hierbei von \texttt{\$...\$}-Zeichen umklammert sein. Eine Liste an verwendbaren mathematischen Symbolen findet sich beispielsweise hier: \href{https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf}{https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf}
+
+Um anschließend auf diese Symbole zuzugreifen, wird der \texttt{\textbackslash{}sym\{\}}-Befehl genutzt. Alternativ kann je nach Bedarf auch \texttt{\textbackslash{}symf\{\}} oder \texttt{\textbackslash{}syml\{\}} benutzt werden.
+
+Beispiel: Daraus ergibt sich das \symf{V}.
+
+Mögliche Befehle:
+\begin{itemize}
+    \item \texttt{\textbackslash{}sym\{\}} fügt die Abkürzung ein $\rightarrow$ z.B. \enquote{V}
+    \item \texttt{\textbackslash{}symf\{\}} fügt die Abkürzung \textbf{und} die Erklärung ein $\rightarrow$ z.B. \enquote{Volumen V}
+    \item \texttt{\textbackslash{}syml\{\}} fügt nur die Erklärung ein $\rightarrow$ z.B. \enquote{Volumen}
+\end{itemize}
+
+
+\section{Glossar}
+Das Glossar funktioniert ebenfalls ähnlich wie das Abkürzungsverzeichnis. Hier erklärt man Wörter, die im Fachjargon weitestgehend selbsterklärend, jedoch allgemein unbekannt sind. Definiert werden die Einträge in der Datei /content/specialPages/Glossary.tex
+
+\begin{lstlisting}[caption=Beispiel einer Glossar-Definition, label=lst:glossary_def, language=bash]
+\newglossaryentry{Hash}
+{
+    name = {Hash},
+    plural = {Hashes},
+    description = {Hashen ist ein Verfahren, mithilfe dessen beispielsweise ein Passwort in einen nicht zurueckkonvertierbaren Text veraendert werden kann. So koennen Daten, welche nur zum Vergleich benutzt werden, sicherer gespeichert werden.}
+}
+\end{lstlisting}
+
+Mit dem Befehl \texttt{\textbackslash{}gls\{\}} wird das dazugehörige Wort mit einer Verlinkung zur Erklärung im Glossar eingefügt. Mit dem Befehl \texttt{\textbackslash{}glspl\{\}} wird dessen Plural-Definition ausgegeben.
+
+Beispiel: Ein \gls{Hash} aus verschiedenen \glspl{Hash} ist ebenfalls möglich.
+
+Falls man Wörter, wie im Englischen oft, kleingeschrieben definiert, kann man diese mit \texttt{\textbackslash{}Gls\{\}} und \texttt{\textbackslash{}Glspl\{\}} auch mit einem großen Anfangsbuchstaben einfügen.

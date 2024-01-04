@@ -1,0 +1,172 @@
+%!TEX root = ./main.tex
+% (this file is tex root!)
+
+
+% Suppress specific warnings and errors
+\RequirePackage{silence}
+\WarningFilter{latex}{You have requested document class `static/format',}
+\WarningFilter{fancyhdr}{}
+\WarningFilter[hyperref]{hyperref}{}
+\WarningFilter[undefined-ref]{latex}{There were undefined references}
+\WarningFilter[symbols]{latex}{Hyper reference `acro:Symbol_}
+\ErrorFilter[no-acros]{latex}{Something's wrong--perhaps a missing }% *a missing \item
+
+\ActivateWarningFilters[hyperref]
+\ActivateWarningFilters[undefined-ref]
+
+
+\documentclass{static/format}
+
+\input{static/header}
+
+\begin{document}
+
+\ifTrue{\printTitlepage} % if \printTitlepage is true
+    % then:
+    {
+        \include{static/specialPages/Titlepage}
+    }
+    % else:
+    {}
+
+\pagenumbering{Roman}
+
+\ifTrue{\printDeclaration} % if \printDeclaration is true
+    % then:
+    {
+        \include{static/specialPages/Declaration}
+    }
+    % else:
+    {}
+
+\ifTrue{\printForeword} % if \printForeword is true
+    % then:
+    {
+        \include{static/specialPages/Foreword}
+    }
+    % else:
+    {}
+
+\ifTrue{\printAbstract} % if \printAbstract is true
+    % then:
+    {
+        \ifdefstring{\documentLanguage}{en} % if \documentLanguage is 'en'
+        % then:
+        {
+            \include{static/specialPages/Abstract_en}
+        }
+        % else:
+        {
+            \include{static/specialPages/Abstract_\documentLanguage}
+            \include{static/specialPages/Abstract_en}
+        }
+
+    }
+    % else:
+    {}
+
+\ifTrue{\printTableOfContents} % if \printTableOfContents is true
+    % then:
+    {
+        \include{static/specialPages/TableOfContents}
+    }
+    % else:
+    {}
+
+\ifTrue{\printListOfFigures} % if \printListOfFigures is true
+    % then:
+    {
+        \include{static/specialPages/ListOfFigures}        
+    }
+    % else:
+    {}
+
+\ifTrue{\printListOfTables} % if \printListOfTables is true
+    % then:
+    {
+        \include{static/specialPages/ListOfTables}
+    }
+    % else:
+    {}
+
+\ifTrue{\printListOfEquations} % if \printListOfEquations is true
+    % then:
+    {
+        \include{static/specialPages/ListOfEquations}
+    }
+    % else:
+    {}
+
+\ifTrue{\printListOfListings} % if \printListOfListings is true
+    % then:
+    {
+        \include{static/specialPages/ListOfListings}
+    }
+    % else:
+    {}
+
+\ifTrue{\printListOfAbbreviation} % if \printListOfAbbreviation is true
+    % then:
+    {
+        \include{static/specialPages/ListOfAbbreviation}
+    }
+    % else:
+    {}
+
+\ifTrue{\printListOfSymbols} % if \printListOfSymbols is true
+    % then:
+    {
+        \include{static/specialPages/ListOfSymbols}
+    }
+    % else:
+    {}
+
+% Remember last roman page number
+\newcounter{savepage}
+\setcounter{savepage}{\arabic{page}}
+
+\pagenumbering{arabic}
+
+\DeactivateWarningFilters[hyperref]
+\DeactivateWarningFilters[undefined-ref]
+
+\foreach \i in {01,02,03,04,05,06,07,08,09,...,99} {
+    \edef\FileName{content/chapters/\i}
+        \IfFileExists{\FileName}{
+            \include{\FileName}
+        }
+        {}
+}
+
+\ActivateWarningFilters[hyperref]
+\ActivateWarningFilters[undefined-ref]
+
+\pagenumbering{Roman}
+\setcounter{page}{\thesavepage}
+
+\ifTrue{\printBibliography} % if \printBibliography is true
+    % then:
+    {
+        \include{static/specialPages/Bibliography}
+    }
+    % else:
+    {}
+
+\ifTrue{\printGlossary} % if \printGlossary is true
+    % then:
+    {
+        \include{static/specialPages/Glossary}
+    }
+    % else:
+    {}
+
+\ifTrue{\printAppendix} % if \printAppendix is true
+    % then:
+    {
+        \include{static/specialPages/Appendix}
+    }
+    % else:
+    {}
+
+
+\end{document}

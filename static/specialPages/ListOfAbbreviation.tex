@@ -1,0 +1,22 @@
+%!TEX root = ../../main.tex
+
+% Set hyperlink in Table of Contents
+\addcontentsline{toc}{chapter}{\protect\hyperlink{loa}{\listOfAbbreviationPhrase}}
+\hypertarget{loa}{}
+
+\chapter*{\listOfAbbreviationPhrase\markboth{\listOfAbbreviationPhrase}{}}
+
+\vspace{-7pt}
+
+\begin{spacing}{2}
+
+\ActivateErrorFilters[no-acros]
+
+\begin{acronym}[MMMMM]
+\setlength{\itemsep}{-\parsep}
+\input{content/specialPages/ListOfAbbreviation}
+\end{acronym}
+
+\DeactivateErrorFilters[no-acros]
+
+\end{spacing}
