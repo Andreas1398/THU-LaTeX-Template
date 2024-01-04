@@ -127,7 +127,7 @@ Technical terms used in the chapters are explained in the glossary. These are us
 *   `\glspl{word}` inserts the corresponding word in the plural definition with a link to the explanation in the glossary.
 *   `\Gls{word}` same as `\gls{}` but capitalizes the first letter.
 *   `\Glspl{word}` same as `\glspl{}` but capitalizes the first letter.
-*   `\glslink{word}{other word} outputs the other word in the text, but links to the glossary entry of the first word.
+*   `\glslink{word}{other word}` outputs the other word in the text, but links to the glossary entry of the first word.
 
 Example of a glossary entry in *content/specialPages/Glossary.tex*:
 
