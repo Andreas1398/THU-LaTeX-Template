@@ -123,7 +123,7 @@ In den Kapiteln verwendete Fachbegriffe werden im Glossar erklärt. Diese verwen
 *   `\glspl{Wort}` fügt das dazugehörige Wort in der Plural-Definition mit einer Verlinkung zur Erklärung im Glossar ein.
 *   `\Gls{Wort}` funktioniert gleich wie `\gls{}`, schreibt aber den ersten Buchstaben groß (eher im Englischen benutzbar).
 *   `\Glspl{Wort}` funktioniert gleich wie `\glspl{}`, schreibt aber den ersten Buchstaben groß (eher im Englischen benutzbar).
-*   `\glslink{Wort}{Anderes Wort} gibt das andere Wort im Text aus, verlinkt jedoch auf den Glossareintrag des ersten Wortes (z.B. nützlich, wenn man das Glossar-Wort an Grammatik und verschiedene Fälle anpassen muss).
+*   `\glslink{Wort}{Anderes Wort}` gibt das andere Wort im Text aus, verlinkt jedoch auf den Glossareintrag des ersten Wortes (z.B. nützlich, wenn man das Glossar-Wort an Grammatik und verschiedene Fälle anpassen muss).
 
 Beispiel einer Glossar-Definition in *content/specialPages/Glossary.tex*:
 
