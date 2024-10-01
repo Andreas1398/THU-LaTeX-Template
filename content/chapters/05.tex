@@ -51,7 +51,34 @@ The label can be named freely, but must not be defined the same way more than on
 \subsubsection{Pro-Tip:}
 It is recommended to use vector graphics if possible. These usually require less storage space and have a much higher resolution than other pixel based formats. To use SVG, the command \texttt{\textbackslash{}includesvg[]\{\}} must be used.
 
+\section{Plots from CSV-files}
+In the following, there's an example of a plot.
 
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={X-Achse},
+            ylabel={Y-Achse},
+            grid=major,
+            width=10cm,
+            height=6cm
+        ]
+            % Load CSV-file
+            \pgfplotstableread[col sep=comma]{content/images/Example.csv}\datatable
+            % Plot data
+            \addplot table \datatable;
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Plot from a CSV-file}
+    \label{fig:exampleplot}
+\end{figure}
+
+The CSV-file should be uploaded in the dictionary /content/images as well. With the parameters \texttt{xlabel} and \texttt{ylabel} the labels of the axis can be adjusted.
+
+With \texttt{grid} the grid can be added or removed. The valid values for \texttt{grid}are: \texttt{none, major, minor, both}. Also, the style and the color of the lines can be adjusted for the x-axis and y-axis respectively.
+
+The size of the plot can be adjusted with the parameters \texttt{widh} and \texttt{height}.
 
 \section{Tables}
 
@@ -128,3 +155,13 @@ This also works with numbers:
 \item The second point.
 \item The third point.
 \end{enumerate}
+
+\section{Circuits}
+If you want to draw electrical circuits with LaTeX, this is possible, too. For more complex circuits you need to read the documentation of the package \texttt{circuitikz}. A little example is given in the following:
+
+\begin{circuitikz} \draw
+  (0,0) to[battery1, l=$V_{in}$] (0,4)
+  to[resistor, l=$R_1$] (4,4)
+  to[resistor, l=$R_2$] (4,0)
+  -- (0,0);
+\end{circuitikz}

@@ -49,6 +49,36 @@ Das Label darf frei benannt werden, darf jedoch nicht mehr als ein Mal gleich de
 \subsubsection{Pro-Tipp:}
 Es wird empfohlen, wenn möglich, Vektorgrafiken zu benutzen. Diese brauchen meist weniger Speicherplatz und sind wesentlich besser aufgelöst als andere pixelbasierte Formate. Um SVG nutzen zu wollen, muss der Befehl \texttt{\textbackslash{}includesvg[]\{\}} benutzt werden.
 
+\section{Plots aus CSV-Dateien}
+Im Folgenden findet sich ein Beispielplot.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={X-Achse},
+            ylabel={Y-Achse},
+            grid=major,
+            width=10cm,
+            height=6cm
+        ]
+            % Daten aus der CSV-Datei laden
+            \pgfplotstableread[col sep=comma]{content/images/Example.csv}\datatable
+            % Plot der Daten
+            \addplot table \datatable;
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Plot aus einer CSV-Datei}
+    \label{fig:beispielplot}
+\end{figure}
+
+Auch die CSV-Datei sollte in den Ordner /content/images hochgeladen werden. Mit den Parametern \texttt{xlabel} und \texttt{ylabel} können die Beschriftungen der Koordinatenachsen festgelegt werden. 
+
+Mit \texttt{grid} können die Gitterlinien angezeigt oder ausgeblendet werden. Die erlaubten Werte für \texttt{grid} sind folgende: \texttt{none, major, minor, both}. Des Weiteren können der Linienstil und die Linienfarbe angepasst werden für jeweils x-Achse und / oder y-Achse.
+
+Die Größe des Plots kann mit den beiden Parametern \texttt{widh} und \texttt{height} angepasst werden.
+
+
 
 
 \section{Tabellen}
@@ -126,3 +156,13 @@ Das geht auch mit Zahlen:
 \item Der zweite Punkt.
 \item Der dritte Punkt.
 \end{enumerate}
+
+\section{Schaltpläne}
+Möchte man Schaltpläne mit LaTeX zeichnen, so ist dies möglich. Für komplexere Schaltpläne muss man sich in die Dokumentation des packages \texttt{circuitikz} einlesen. Ein kleines Beispiel ist im Folgenden gegeben:
+
+\begin{circuitikz} \draw
+  (0,0) to[battery1, l=$V_{in}$] (0,4)
+  to[resistor, l=$R_1$] (4,4)
+  to[resistor, l=$R_2$] (4,0)
+  -- (0,0);
+\end{circuitikz}
