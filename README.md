@@ -159,6 +159,15 @@ Es wird jedoch empfohlen, den kostenlosen Online-Editor [Overleaf](https://www.o
 
 ## Lokale Nutzung
 Lade das ganze Repository von GitHub herunter (*Code*->*Download ZIP*), entpacke die zip-Datei und öffne den entstandenen Ordner mit dem LaTeX-Programm deiner Wahl. Zum Erstellen der PDF muss die Datei *main.tex* kompiliert werden.
+Es können beliebige LaTeX-Compiler verwendet werden. Einer von ihnen ist MiKTeX (https://miktex.org/) bzw. TEXworks. Bitte direkt nach der Installation auf Updates überprüfen, um die aktuellste Version von MiKTeX bzw. TEXworks zu verwenden! Für die Verwendung muss Inkscape auf dem Rechner installiert werden (evtl. auch der Pfad zur Installation eingestellt werden) und folgende Argumente müssen für die pdfLaTeX-kompilierung gesetzt sein (Bearbeiten -> Einstellungen -> Textsatz -> pdfLaTeX -> Bearbeiten):
+$synctexoption
+--shell-escape
+-synctex=1
+-interaction=nonstopmode
+-undump=pdflatex
+$fullname
+%.tex
+
 
 ## Nutzung von Overleaf
 Lade das ganze Repository von GitHub herunter (*Code*->*Download ZIP*). Erstelle auf Overleaf ein neues Projekt und lade dabei die zip-Datei hoch. Prüfe nun im Menu, ob folgende Einstellungen übereinstimmen:
