@@ -160,6 +160,22 @@ However, it is recommended to use the free online editor [Overleaf](https://www.
 ## Local useage
 Download the entire repository from GitHub (*Code*->*DownloadZIP*), unzip the zip file and open the resulting folder with the LaTeX program of your choice. To create the PDF, the file *main.tex* must be compiled.
 
+Any LaTeX compiler can be used. One of them is MiKTeX (https://miktex.org/) or TEXworks. Please check for updates immediately after installation to ensure you are using the latest version of MiKTeX or TEXworks! Inkscape must be installed on your computer (you may also need to configure the installation path), and the following arguments must be set for pdfLaTeX compilation (Edit -> Preferences -> Typesetting -> pdfLaTeX -> Edit):
+
+$synctexoption
+
+--shell-escape
+
+-synctex=1
+
+-interaction=nonstopmode
+
+-undump=pdflatex
+
+$fullname
+
+%.tex
+
 ## Usage of Overleaf
 Download the entire repository from GitHub (*Code*->*DownloadZIP*). Create a new project on Overleaf and upload the zip file. Now check in the menu whether the following settings match:
 
