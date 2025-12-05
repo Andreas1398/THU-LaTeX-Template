@@ -1,5 +1,6 @@
 %!TEX root = ../main.tex
 
+
 \usepackage[export]{adjustbox}
 %\usepackage{adjustbox}
 \usepackage{lipsum}
@@ -36,14 +37,18 @@
 \usepackage[nopostdot]{glossaries}
 \usepackage{svg}
 \svgsetup{
-  inkscapepath=C:\Program Files\Inkscape\bin\inkscape.exe/
+    inkscapeexe={inkscape},
+    inkscapearea=page
 }
+
 \usepackage{colortbl}
 \usepackage{multirow}
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=1.18}
 \usepackage{circuitikz}
+\usepackage{makecell}
+\usepackage{rotating}
 
 
 % Input custom commands, settings and check settings
@@ -52,9 +57,11 @@
 \emptyAllUnchangedParameters
 \input{static/checkSettings}
 
-
 % Load language specific strings
 \input{static/languages/\documentLanguage}
+
+
+
 
 % Translate common pre-defined parameters from the babel package:
 \newcommand*{\customLanguageParameters}{
@@ -99,7 +106,6 @@
 
 % Graphics path
 \graphicspath{{content/images/}}
-
 
 % Enable use of glossary
 \makeglossaries
